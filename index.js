@@ -25,15 +25,16 @@ app.post('/calc', (req, res) => {
   let { operation_type, x, y } = req.body;
   x = Number(x);
   y = Number(y);
+  let type = operation_type.toLowerCase();
   let result;
 
-  if (operation_type.indexOf('add') > -1 || operation_type.indexOf('sum') > -1) {
+  if (type.indexOf('add') > -1 || type.indexOf('sum') > -1) {
     result = x + y;
     operation_type = 'addition';
-  } else if (operation_type.indexOf('sub') > -1 || operation_type.indexOf('minus') > -1) {
+  } else if (type.indexOf('sub') > -1 || type.indexOf('minus') > -1) {
     result = x - y;
     operation_type = 'substraction';
-  } else if (operation_type.indexOf('multi') > -1 || operation_type.indexOf('product') > -1) {
+  } else if (type.indexOf('multi') > -1 || type.indexOf('product') > -1) {
     result = x * y;
     operation_type = 'multiplication';
   } else {
